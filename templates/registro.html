@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Faltas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Registro de Faltas</h1>
+    <p><strong>Monitor:</strong> {{ monitor.nome }} ({{ monitor.turno }})</p>
+    <a href="{{ url_for('logout') }}" class="sair">Sair</a>
+
+    {% if sucesso %}
+      <p class="sucesso">✅ Falta registrada com sucesso!</p>
+    {% endif %}
+
+    <form method="post">
+      <input type="text" name="aluno" placeholder="Nome do aluno" required>
+      <input type="date" name="data" required>
+      <textarea name="motivo" placeholder="Motivo da falta" required></textarea>
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+</body>
+</html>
